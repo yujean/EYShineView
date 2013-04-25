@@ -9,46 +9,61 @@
 #import "EYShineView.h"
 
 @interface EYShineView ()
+@property (nonatomic, strong) CADisplayLink *displayLink;
 @property (nonatomic, strong) UIImage* maskImage;
 @property (nonatomic, strong) UIImageView* maskImageView;
 @property (nonatomic, strong) CMAttitude *referenceFrame;
+@property (nonatomic) EYShineViewMeasurementType measurementType;
 @end
 
 @implementation EYShineView
 
-- (id)initWithMask:(UIImage*)theMaskImage withNormal:(CGFloat)theRadians {
-	self = [super initWithFrame:CGRectMake(0.0f, 0.0f,theMaskImage.size.width, theMaskImage.size.width)];
+- (id)initWithMask:(UIImage*)theMaskImage withNormal:(CGFloat)theRadians withMeasurement:(EYShineViewMeasurementType)theMeasurementType {
+	self = [super initWithFrame:CGRectMake(0.0f, 0.0f,theMaskImage.size.width, theMaskImage.size.height)];
 	if (self) {
 		[self setRadiansOfNormal:theRadians];
 		[self setMaskImage:theMaskImage];
 		[self setMaskImageView:[[UIImageView alloc] initWithImage:theMaskImage]];
 		[[self maskImageView] setFrame:[self bounds]];
+		[self setMeasurementType:theMeasurementType];
 		[[self layer] setMask:[[self maskImageView] layer]];
+		//		[self setDisplayLink:[CADisplayLink displayLinkWithTarget:self selector:@selector(setNeedsDisplay)]];
+		//		[[self displayLink] addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 	}
-
-	[CADisplayLink displayLinkWithTarget:self selector:@selector(updateShine)];
 	return self;
 }
 
-- (void)updateShine {
+- (void)updateShineWithAttitude:(CMAttitude*)theAttitude {
+	CGFloat measurement;
+	CGFloat rotationInfluence;
+	CGFloat minAlphaValue = [[self delegate] minimumValue];
+	CGFloat maxAlphaValue = [[self delegate] maximumValue];
+	CGFloat exaggerateMovementFactor = 3.0f;
+//	CGFloat minAlphaValue = 0.0f;
+//	CGFloat maxAlphaValue = 0.5f;
 
-	CMAttitude *attitude = [[self delegate] currentAttitude];
-	CGFloat yaw = attitude.yaw;
-
-	CGFloat x = yaw+[self radiansOfNormal];
-
-	if (x > M_PI) {
-		x -= 2*M_PI;
-	} else if (x < -M_PI) {
-		x += 2*M_PI;
+	switch ([self measurementType]) {
+		case kEYShineViewMeasurementTypePitch:
+			measurement = theAttitude.pitch;
+			rotationInfluence = 1.0f;
+			break;
+		case kEYShineViewMeasurementTypeRoll:
+			measurement = theAttitude.roll;
+			rotationInfluence = 1.0f;
+			break;
+		case kEYShineViewMeasurementTypeYaw:
+			measurement = theAttitude.yaw;
+			rotationInfluence = 1.0f;
+			break;
+		default:
+			break;
 	}
 
-	CGFloat alphaValue = 1.0f - (x/M_PI);
-
-	NSLog(@"yaw: %1.2f, alpha: %1.2f", yaw, alphaValue);
-//	NSLog(@"Attitude: pitch: %1.2f, roll: %1.2f, yaw: %1.2f, alpha: %1.2f", pitch, roll, yaw, alphaValue);
-//	NSLog(@"Attitude: pitch: %1.2f, roll: %1.2f, yaw: %1.2f", attitude.pitch, attitude.roll, attitude.yaw);
-	[self setBackgroundColor:[UIColor colorWithWhite:alphaValue alpha:1.0f]];
+	CGFloat rotation = exaggerateMovementFactor * (measurement + [self radiansOfNormal]);
+	CGFloat rotationFactor = (cos(rotation) + 1.0f)/2.0f; // Yields value between 0.0f to 1.0f
+	CGFloat alphaValue = ((maxAlphaValue-minAlphaValue) * rotationFactor) + minAlphaValue;
+	[self setBackgroundColor:[UIColor colorWithWhite:1.0f alpha:alphaValue]];
+	NSLog(@"Min: %1.2f, Max: %1.2f, Alpha: %1.2f", minAlphaValue, maxAlphaValue, alphaValue);
 }
 
 @end

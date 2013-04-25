@@ -6,12 +6,21 @@
 //  Copyright (c) 2013 Eugene Yee. All rights reserved.
 //
 
-@protocol EYShineViewDelegate
-- (CMAttitude*)currentAttitude;
+typedef enum kEYShineViewMeasurementType {
+	kEYShineViewMeasurementTypePitch = 0,
+	kEYShineViewMeasurementTypeRoll,
+	kEYShineViewMeasurementTypeYaw,
+} EYShineViewMeasurementType;
+
+@protocol EYShineDelegate
+- (CGFloat)minimumValue;
+- (CGFloat)maximumValue;
 @end
 
 @interface EYShineView : UIView
 @property (nonatomic, assign) CGFloat radiansOfNormal;
-- (id)initWithMask:(UIImage*)theMaskImage withNormal:(CGFloat)theRadians;
-@property (nonatomic, weak) id <EYShineViewDelegate> delegate;
+@property (nonatomic, weak) id<EYShineDelegate> delegate;
+- (id)initWithMask:(UIImage*)theMaskImage withNormal:(CGFloat)theRadians withMeasurement:(EYShineViewMeasurementType)theMeasurementType;
+- (void)updateShine;
+- (void)updateShineWithAttitude:(CMAttitude*)theAttitude;
 @end

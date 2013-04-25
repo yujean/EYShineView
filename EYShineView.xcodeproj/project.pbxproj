@@ -18,6 +18,15 @@
 		A601007F1726DCC800B8AF88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A601007E1726DCC800B8AF88 /* Default-568h@2x.png */; };
 		A60100821726DCC800B8AF88 /* EYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60100811726DCC800B8AF88 /* EYViewController.m */; };
 		A60100851726DCC800B8AF88 /* EYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60100831726DCC800B8AF88 /* EYViewController.xib */; };
+		A601008D1726DCD900B8AF88 /* EYShineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A601008C1726DCD900B8AF88 /* EYShineView.m */; };
+		A601008F1726DD2600B8AF88 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A601008E1726DD2600B8AF88 /* CoreMotion.framework */; };
+		A60100911726EE5900B8AF88 /* testMask1.png in Resources */ = {isa = PBXBuildFile; fileRef = A60100901726EE5900B8AF88 /* testMask1.png */; };
+		A60100A41727002C00B8AF88 /* bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = A601009F1727002C00B8AF88 /* bottom.png */; };
+		A60100A51727002C00B8AF88 /* corners.png in Resources */ = {isa = PBXBuildFile; fileRef = A60100A01727002C00B8AF88 /* corners.png */; };
+		A60100A61727002C00B8AF88 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = A60100A11727002C00B8AF88 /* left.png */; };
+		A60100A71727002C00B8AF88 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = A60100A21727002C00B8AF88 /* right.png */; };
+		A60100A81727002C00B8AF88 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = A60100A31727002C00B8AF88 /* top.png */; };
+		A6588DDC1728C2B7007B91DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6588DDB1728C2B7007B91DE /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +46,16 @@
 		A60100801726DCC800B8AF88 /* EYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EYViewController.h; sourceTree = "<group>"; };
 		A60100811726DCC800B8AF88 /* EYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EYViewController.m; sourceTree = "<group>"; };
 		A60100841726DCC800B8AF88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EYViewController.xib; sourceTree = "<group>"; };
+		A601008B1726DCD900B8AF88 /* EYShineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYShineView.h; sourceTree = "<group>"; };
+		A601008C1726DCD900B8AF88 /* EYShineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYShineView.m; sourceTree = "<group>"; };
+		A601008E1726DD2600B8AF88 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A60100901726EE5900B8AF88 /* testMask1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testMask1.png; sourceTree = "<group>"; };
+		A601009F1727002C00B8AF88 /* bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottom.png; sourceTree = "<group>"; };
+		A60100A01727002C00B8AF88 /* corners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corners.png; sourceTree = "<group>"; };
+		A60100A11727002C00B8AF88 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		A60100A21727002C00B8AF88 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		A60100A31727002C00B8AF88 /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		A6588DDB1728C2B7007B91DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +63,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6588DDC1728C2B7007B91DE /* QuartzCore.framework in Frameworks */,
 				A60100691726DCC800B8AF88 /* UIKit.framework in Frameworks */,
 				A601006B1726DCC800B8AF88 /* Foundation.framework in Frameworks */,
 				A601006D1726DCC800B8AF88 /* CoreGraphics.framework in Frameworks */,
+				A601008F1726DD2600B8AF88 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +94,11 @@
 		A60100671726DCC800B8AF88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A601006C1726DCC800B8AF88 /* CoreGraphics.framework */,
+				A601008E1726DD2600B8AF88 /* CoreMotion.framework */,
+				A6588DDB1728C2B7007B91DE /* QuartzCore.framework */,
 				A60100681726DCC800B8AF88 /* UIKit.framework */,
 				A601006A1726DCC800B8AF88 /* Foundation.framework */,
-				A601006C1726DCC800B8AF88 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,6 +108,8 @@
 			children = (
 				A60100771726DCC800B8AF88 /* EYAppDelegate.h */,
 				A60100781726DCC800B8AF88 /* EYAppDelegate.m */,
+				A601008B1726DCD900B8AF88 /* EYShineView.h */,
+				A601008C1726DCD900B8AF88 /* EYShineView.m */,
 				A60100801726DCC800B8AF88 /* EYViewController.h */,
 				A60100811726DCC800B8AF88 /* EYViewController.m */,
 				A60100831726DCC800B8AF88 /* EYViewController.xib */,
@@ -96,6 +121,12 @@
 		A601006F1726DCC800B8AF88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A601009F1727002C00B8AF88 /* bottom.png */,
+				A60100A01727002C00B8AF88 /* corners.png */,
+				A60100A11727002C00B8AF88 /* left.png */,
+				A60100A21727002C00B8AF88 /* right.png */,
+				A60100A31727002C00B8AF88 /* top.png */,
+				A60100901726EE5900B8AF88 /* testMask1.png */,
 				A60100701726DCC800B8AF88 /* EYShineView-Info.plist */,
 				A60100711726DCC800B8AF88 /* InfoPlist.strings */,
 				A60100741726DCC800B8AF88 /* main.m */,
@@ -164,6 +195,12 @@
 				A601007D1726DCC800B8AF88 /* Default@2x.png in Resources */,
 				A601007F1726DCC800B8AF88 /* Default-568h@2x.png in Resources */,
 				A60100851726DCC800B8AF88 /* EYViewController.xib in Resources */,
+				A60100911726EE5900B8AF88 /* testMask1.png in Resources */,
+				A60100A41727002C00B8AF88 /* bottom.png in Resources */,
+				A60100A51727002C00B8AF88 /* corners.png in Resources */,
+				A60100A61727002C00B8AF88 /* left.png in Resources */,
+				A60100A71727002C00B8AF88 /* right.png in Resources */,
+				A60100A81727002C00B8AF88 /* top.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +214,7 @@
 				A60100751726DCC800B8AF88 /* main.m in Sources */,
 				A60100791726DCC800B8AF88 /* EYAppDelegate.m in Sources */,
 				A60100821726DCC800B8AF88 /* EYViewController.m in Sources */,
+				A601008D1726DCD900B8AF88 /* EYShineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +337,7 @@
 				A601008A1726DCC800B8AF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

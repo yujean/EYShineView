@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Eugene Yee. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "EYShineView.h"
 
 @interface EYViewController : UIViewController
 

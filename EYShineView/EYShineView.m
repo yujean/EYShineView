@@ -38,7 +38,7 @@
 	CGFloat rotationInfluence;
 	CGFloat minAlphaValue = [[self delegate] minimumValue];
 	CGFloat maxAlphaValue = [[self delegate] maximumValue];
-	CGFloat exaggerateMovementFactor = 3.0f;
+	CGFloat exaggerateMovementFactor = 2.5f;
 //	CGFloat minAlphaValue = 0.0f;
 //	CGFloat maxAlphaValue = 0.5f;
 

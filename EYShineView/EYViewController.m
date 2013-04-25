@@ -29,13 +29,16 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+//	[[self view] setBackgroundColor:[UIColor blackColor]];
+//	[[self view] setBackgroundColor:[UIColor darkGrayColor]];
+//	[[self view] setBackgroundColor:[UIColor colorWithRed:0.000 green:0.502 blue:1.000 alpha:1.000]];
 	[[self view] setBackgroundColor:[UIColor colorWithRed:0.971 green:0.000 blue:0.218 alpha:1.000]];
 
 	[self setupShineViews];
 
-	[[self minSlider] setValue:0.1f];
+	[[self minSlider] setValue:0.00f];
 	[self minSliderValueChanged:[self minSlider]];
-	[[self maxSlider] setValue:0.7f];
+	[[self maxSlider] setValue:1.0f];
 	[self maxSliderValueChanged:[self maxSlider]];
 	[self startShine];
 }
